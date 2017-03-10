@@ -1,11 +1,9 @@
-package edu.ss.deathnote.option.description;
+package edu.ss.deathnote.notebook.option.description;
 
 import edu.ss.deathnote.option.Option;
 import edu.ss.deathnote.option.command.AbstractCommand;
 
-import java.lang.reflect.Field;
 import java.util.Collection;
-import java.util.Map;
 
 /**
  * Created by dznor on 23.02.2017.

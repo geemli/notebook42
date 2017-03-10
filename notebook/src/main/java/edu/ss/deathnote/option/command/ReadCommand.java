@@ -1,9 +1,5 @@
 package edu.ss.deathnote.option.command;
 
-import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by dznor on 23.02.2017.
  */

@@ -4,7 +4,6 @@ import edu.ss.deathnote.option.Option;
 
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.Set;
 
 /**
  * Created by dznor on 23.02.2017.

@@ -1,8 +1,6 @@
 package edu.ss.deathnote.main;
 
 import edu.ss.deathnote.handle.CommandHandler;
-import edu.ss.deathnote.option.Option;
-import edu.ss.deathnote.option.description.CommandDescription;
 
 import java.util.*;
 

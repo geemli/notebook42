@@ -11,5 +11,12 @@
 
     <artifactId>handler</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.samsolutions.notepadik</groupId>
+            <artifactId>notebook</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 </project>
