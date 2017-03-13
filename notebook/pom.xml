@@ -10,5 +10,12 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>notebook</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.samsolutions.notepadik</groupId>
+            <artifactId>commandparser</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 </project>

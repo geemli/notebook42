@@ -1,13 +1,14 @@
-package edu.ss.deathnote.option;
+package command.desccription;
 
 /**
  * Created by dznor on 23.02.2017.
  */
 public class Option {
-    String arg;
-    boolean required;
-    String description;
-//    String setterMethod;
+
+    private String arg;
+    private boolean required;
+    private String description;
+    private String valueType;
 
     public Option(String arg, boolean required, String description) {
         this.arg = arg;

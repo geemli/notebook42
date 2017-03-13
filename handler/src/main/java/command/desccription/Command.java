@@ -1,4 +1,4 @@
-package edu.ss.deathnote.option.command;
+package command.desccription;
 
 /**
  * Created by dznor on 28.02.2017.

@@ -1,15 +1,11 @@
-package edu.ss.deathnote.handle;
+package command.parser;
 
 
-import edu.ss.deathnote.notebook.option.description.CommandDescription;
-import edu.ss.deathnote.option.Option;
-import edu.ss.deathnote.option.command.*;
+import command.desccription.CommandDescription;
+import command.desccription.Option;
 
 import java.lang.reflect.Field;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.regex.Pattern;
 
 /**
@@ -17,58 +13,31 @@ import java.util.regex.Pattern;
  */
 public class CommandHandler {
 
-    CommandDescription command;
-    Set<CommandDescription> commands = new HashSet<>();
+    private Set<Option> globalOptions;
+    private Set<CommandDescription> commands;
 
-    public CommandHandler() {
+    public CommandHandler(Set<Option> globalOptions, Set<CommandDescription> commands) {
+        this.globalOptions = globalOptions;
+        this.commands = commands;
+    }
 
-        Set<Option> createOptions = new HashSet<>();
-        createOptions.add(new Option("name", true, "user's name"));
-        createOptions.add(new Option("number", true, "user's number"));
-        createOptions.add(new Option("date", false, "date of created"));
-        CommandDescription createCommandDescription = new CommandDescription("create", "add note", new CreateCommand(), createOptions);
+    public CommandHandler(Set<CommandDescription> commands) {
+        this.commands = commands;
+    }
 
-        Set<Option> readOptions = new HashSet<>();
-        readOptions.add(new Option("number", true, "number"));
-        CommandDescription readCommandDescription = new CommandDescription("read", "read note", new ReadCommand(), readOptions);
-
-        Set<Option> updateOptions = new HashSet<>();
-        updateOptions.add(new Option("number", true, "user's number"));
-        updateOptions.add(new Option("name", true, "user's name"));
-        updateOptions.add(new Option("date", false, "date of created"));
-        CommandDescription updateCommandDescription = new CommandDescription("update", "update note", new UpdateCommand(), updateOptions);
-
-        Set<Option> deleteOptions = new HashSet<>();
-        deleteOptions.add(new Option("number", true, "user's number"));
-        CommandDescription deleteCommandDescription = new CommandDescription("delete", "delete note", new DeleteCommand(), deleteOptions);
-
-        Set<Option> sortOptions = new HashSet<>();
-        CommandDescription sortCommandDescription = new CommandDescription("sort", "sort note", new SortCommand(), sortOptions);
-
-//        Class c = AbstractCommand.class;
-//        Class[] interfaces = c.getInterfaces();
-//        for (Class cInterface : interfaces) {
-//            System.out.println(cInterface.getName());
-//        }
-
-        commands.add(createCommandDescription);
-        commands.add(readCommandDescription);
-        commands.add(updateCommandDescription);
-        commands.add(deleteCommandDescription);
-        commands.add(sortCommandDescription);
+    public void handle(String[] args) throws NoSuchFieldException, IllegalAccessException {
+        Collection<String> arguments = new ArrayList<>(Arrays.asList(args));
+        handle(arguments);
     }
 
     public void handle(Collection<String> args) throws NoSuchFieldException, IllegalAccessException {
-        command = selectCommand(args);
+
+        CommandDescription command = selectCommand(args);
+        Collection<Option> commandOptions = command.getOptions();
 
         ValidatorAndCreator validatorAndCreator = new ValidatorAndCreator();
-        Collection<Option> commandOptions = command.getOptions();
-//        System.out.println(commandOptions.size() + command.getName());
         Map<String, String> argsMap = validatorAndCreator.createCommandArgsMap(commandOptions, args);
 
-        if(command == null) {
-            throw new IllegalStateException("command is null. sorry ;(");
-        }
         Class c = command.getCommand().getClass();
         argsMap.entrySet().forEach(entry -> {
             try {
@@ -82,11 +51,15 @@ public class CommandHandler {
 //            System.out.println(entry.getKey() + entry.getValue());
         });
 
+        if (command == null) {
+            throw new IllegalStateException("command is null. sorry ;(");
+        }
+
         command.execute();
     }
 
-    private CommandDescription selectCommand(Collection<String> args) {
-        if(args.isEmpty()) {
+    public CommandDescription selectCommand(Collection<String> args) {
+        if (args.isEmpty()) {
             throw new IllegalArgumentException("no arguments");
         }
         for (String arg : args) {

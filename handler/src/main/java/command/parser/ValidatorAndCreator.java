@@ -1,6 +1,6 @@
-package edu.ss.deathnote.handle;
+package command.parser;
 
-import edu.ss.deathnote.option.Option;
+import command.desccription.Option;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -42,7 +42,7 @@ public class ValidatorAndCreator {
                 if (valid) {
                     result.put(a, value);
                 } else {
-                    throw new IllegalArgumentException("edu.ss.deathnote.notebook.option " + a + " hasn't any arguments");
+                    throw new IllegalArgumentException("edu.ss.deathnote.option " + a + " hasn't any arguments");
                 }
             } else {
                 throw new IllegalArgumentException("pattern doesn't matches");
