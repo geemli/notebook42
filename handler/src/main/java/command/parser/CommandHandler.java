@@ -46,6 +46,7 @@ public class CommandHandler {
                 temp.set(command.getCommand(), entry.getValue());
             } catch (NoSuchFieldException | IllegalAccessException e) {
                 e.printStackTrace();
+                throw new NoSuchFieldError();
             }
 
 //            System.out.println(entry.getKey() + entry.getValue());
