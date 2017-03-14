@@ -19,7 +19,6 @@ import static org.junit.Assert.assertTrue;
 
 public class NotebookImplTest {
 
-
     public static final String NAME = "DMITRY";
     public static final String NUMBER = "3600666";
 
@@ -41,8 +40,7 @@ public class NotebookImplTest {
         Entry entry = new Entry(NAME, NUMBER);
         notebook.create(entry);
         Entry entry1 = notebook.readName(NAME);
-        assertEquals(entry.getName(), entry1.getName());
-        assertEquals(entry.getNumber(), entry1.getNumber());
+        assertEquals(entry, entry1);
     }
 
     @Test
@@ -50,8 +48,7 @@ public class NotebookImplTest {
         Entry entry = new Entry(NAME, NUMBER);
         notebook.create(entry);
         Entry entry1 = notebook.readNumber(NUMBER);
-        assertEquals(entry.getName(), entry1.getName());
-        assertEquals(entry.getNumber(), entry1.getNumber());
+        assertEquals(entry, entry1);
     }
 
     @Test
