@@ -48,8 +48,6 @@ public class CommandHandler {
                 e.printStackTrace();
                 throw new NoSuchFieldError();
             }
-
-//            System.out.println(entry.getKey() + entry.getValue());
         });
 
         if (command == null) {
