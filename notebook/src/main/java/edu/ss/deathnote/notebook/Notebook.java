@@ -6,7 +6,9 @@ package edu.ss.deathnote.notebook;
 public interface Notebook {
     void create(Entry entry);
 
-    Entry read(String name);
+    Entry readName(String name);
+
+    Entry readNumber(String name);
 
     void update(Entry entry, Entry newEntry);
 

@@ -17,7 +17,7 @@ public class NotebookImpl implements Notebook {
     }
 
     @Override
-    public Entry read(String name) {
+    public Entry readName(String name) {
         for (Entry entry : notebook) {
             if (entry.getName().equals(name)) {
                 return entry;
@@ -27,9 +27,20 @@ public class NotebookImpl implements Notebook {
     }
 
     @Override
+    public Entry readNumber(String number) {
+        for (Entry entry : notebook) {
+            if (entry.getNumber().equals(number)) {
+                return entry;
+            }
+        }
+        return null;
+    }
+
+
+    @Override
     public void update(Entry entry, Entry newEntry) {
         notebook.remove(entry);
-        notebook.add(entry);
+        notebook.add(newEntry);
     }
 
     @Override
@@ -40,5 +51,9 @@ public class NotebookImpl implements Notebook {
     @Override
     public void sort() {
         Collections.sort(notebook);
+    }
+
+    public List<Entry> getNotebook() {
+        return notebook;
     }
 }

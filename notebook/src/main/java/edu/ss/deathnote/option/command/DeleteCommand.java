@@ -9,6 +9,6 @@ public class DeleteCommand extends AbstractCommand {
 
     @Override
     public void execute() {
-        System.out.println("DeleteCommand execute()");
+        notebook.delete(notebook.readNumber(number));
     }
 }
