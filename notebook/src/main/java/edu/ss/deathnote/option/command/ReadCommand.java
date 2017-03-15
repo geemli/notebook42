@@ -12,20 +12,8 @@ public class ReadCommand extends AbstractCommand {
     private String name;
     private String number;
 
-    private OutputStream os;
-
     @Override
     public void execute() {
-
-        if (file == null) {
-            os = System.out;
-        } else {
-            try {
-                os = new FileOutputStream(new File(file));
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
-        }
 
         Entry entry;
         if (name != null) {

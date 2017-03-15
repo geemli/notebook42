@@ -5,7 +5,7 @@ import java.util.Collection;
 /**
  * Created by dznor on 23.02.2017.
  */
-public class CommandDescription implements Command {
+public class CommandDescription  {
 
     private String name;
     private String description;
@@ -40,8 +40,4 @@ public class CommandDescription implements Command {
         this.command = command;
     }
 
-    @Override
-    public void execute() {
-        command.execute();
-    }
 }

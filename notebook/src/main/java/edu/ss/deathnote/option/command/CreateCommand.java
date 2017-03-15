@@ -2,7 +2,7 @@ package edu.ss.deathnote.option.command;
 
 import edu.ss.deathnote.notebook.Entry;
 
-import java.io.*;
+import java.util.Map;
 
 public class CreateCommand extends AbstractCommand {
 
@@ -10,7 +10,7 @@ public class CreateCommand extends AbstractCommand {
     private String number;
 
     @Override
-    public void execute() {
+    public Map<String, Object> execute() {
         Entry entry = new Entry(name, number);
         notebook.create(entry);
 //        if (file == null || file.isEmpty()) {
@@ -39,5 +39,6 @@ public class CreateCommand extends AbstractCommand {
 //            e.printStackTrace();
 //        }
 
+        return null;
     }
 }

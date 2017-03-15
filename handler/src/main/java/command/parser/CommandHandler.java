@@ -54,7 +54,7 @@ public class CommandHandler {
             throw new IllegalStateException("command is null. sorry ;(");
         }
 
-        command.execute();
+        Map<String, Object> execute = command.getCommand().execute();
     }
 
     public CommandDescription selectCommand(Collection<String> args) {

@@ -31,7 +31,6 @@ public class ValidatorAndCreator {
                 value = temp[1];
 
                 for (Option option : options) {
-                    System.out.println(options.size() + option.getArg() + "________" + a + "=" + value);
                     if (a.equals(option.getArg())) {
                         valid = true;
                         options.remove(option);

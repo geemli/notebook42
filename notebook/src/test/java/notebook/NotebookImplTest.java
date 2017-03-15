@@ -28,7 +28,7 @@ public class NotebookImplTest {
     NotebookImpl notebook = new NotebookImpl();
 
     @Test
-    public void create() {
+    public void createAndAddEntryTest() {
         Entry entry = new Entry(NAME, NUMBER);
         assertFalse(notebook.getNotebook().contains(entry));
         notebook.create(entry);
@@ -36,7 +36,7 @@ public class NotebookImplTest {
     }
 
     @Test
-    public void readName() {
+    public void createAddEntryAndReadNameTest() {
         Entry entry = new Entry(NAME, NUMBER);
         notebook.create(entry);
         Entry entry1 = notebook.readName(NAME);
@@ -44,7 +44,7 @@ public class NotebookImplTest {
     }
 
     @Test
-    public void readNumber() {
+    public void createAddEntryAndReadNumberTest() {
         Entry entry = new Entry(NAME, NUMBER);
         notebook.create(entry);
         Entry entry1 = notebook.readNumber(NUMBER);
@@ -52,7 +52,7 @@ public class NotebookImplTest {
     }
 
     @Test
-    public void update() {
+    public void createAndAddTwoEntryAndUpdate() {
         Entry entry1 = new Entry(NAME, NUMBER);
         Entry entry2 = new Entry(NAME_NEW, NUMBER_NEW);
         notebook.update(entry1, entry2);
@@ -61,7 +61,7 @@ public class NotebookImplTest {
     }
 
     @Test
-    public void delete() {
+    public void createAddDeleteTest() {
         Entry entry1 = new Entry(NAME, NUMBER);
         notebook.create(entry1);
         assertTrue(notebook.getNotebook().contains(entry1));
@@ -70,7 +70,7 @@ public class NotebookImplTest {
     }
 
     @Test
-    public void sort() {
+    public void createAdd4EntrySortTest() {
         Entry entry1 = new Entry(NAME, NUMBER);
         Entry entry2 = new Entry(NAME_NEW, NUMBER_NEW);
         Entry entry3 = new Entry(NAME, NUMBER);
