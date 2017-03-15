@@ -25,7 +25,7 @@ public class NotebookImplTest {
     public static final String NAME_NEW = "DIMITRIUS";
     public static final String NUMBER_NEW = "1234567";
 
-    NotebookImpl notebook = new NotebookImpl();
+    NotebookImpl notebook = NotebookImpl.getInstance();
 
     @Test
     public void createAndAddEntryTest() {

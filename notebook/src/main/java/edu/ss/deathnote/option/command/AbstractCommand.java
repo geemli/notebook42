@@ -22,7 +22,7 @@ public abstract class AbstractCommand implements Command {
     protected OutputStream os;
 
     public AbstractCommand() {
-        notebook = new NotebookImpl();
+        notebook = NotebookImpl.getInstance();
         if (file == null) {
             os = System.out;
         } else {

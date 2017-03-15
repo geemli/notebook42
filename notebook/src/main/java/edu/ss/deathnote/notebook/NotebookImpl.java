@@ -9,6 +9,12 @@ import java.util.List;
  */
 public class NotebookImpl implements Notebook {
 
+    private static NotebookImpl notebook2 = new NotebookImpl();
+    private NotebookImpl() {}
+    public static NotebookImpl getInstance() {
+        return notebook2;
+    }
+
     List<Entry> notebook = new ArrayList<>();
 
     @Override
